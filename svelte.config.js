@@ -21,9 +21,9 @@ function selectAdapter() {
 	}
 
 	// Netlify environment
-	if (process.env.NETLIFY) {
+	if (process.env.NETLIFY || process.env.NETLIFY_LOCAL) {
 		console.log('Using Netlify adapter');
-		return netlify();
+		return netlify({ edge: false });
 	}
 
 	// Cloudflare Workers environment
