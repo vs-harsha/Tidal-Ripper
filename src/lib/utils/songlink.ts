@@ -203,28 +203,43 @@ export async function convertToTidal(
 /**
  * Like convertToTidal but also returns the source entity (title/artist)
  * so callers can fall back to a direct TIDAL search when no TIDAL link exists.
+ *
+ * Strategy:
+ *  1. Try with the detected/provided country (e.g. IN for Indian Apple Music links)
+ *  2. If no TIDAL link found, retry with US (TIDAL links are most reliably indexed under US)
+ *  3. If still nothing, return title+artist from the source entity for a direct TIDAL search
  */
 export async function convertToTidalWithFallback(
 	url: string,
 	options?: { userCountry?: string; songIfSingle?: boolean }
 ): Promise<{ tidalInfo: TidalInfo | null; fallbackTitle?: string; fallbackArtist?: string }> {
-	try {
-		const country = options?.userCountry ?? detectCountryFromUrl(url) ?? 'US';
-		const songlinkData = await fetchSonglinkData(url, { ...options, userCountry: country });
-		const tidalInfo = extractTidalInfo(songlinkData);
-		if (tidalInfo) return { tidalInfo };
+	const detectedCountry = options?.userCountry ?? detectCountryFromUrl(url) ?? 'US';
+	const countriesToTry = detectedCountry !== 'US' ? [detectedCountry, 'US'] : ['US'];
 
-		// No TIDAL link found — extract source entity for fallback search
-		const primaryEntity = songlinkData.entitiesByUniqueId[songlinkData.entityUniqueId];
-		return {
-			tidalInfo: null,
-			fallbackTitle: primaryEntity?.title,
-			fallbackArtist: primaryEntity?.artistName
-		};
-	} catch (error) {
-		console.error('Failed to convert URL to TIDAL:', error);
-		return { tidalInfo: null };
+	let lastSonglinkData: SonglinkResponse | null = null;
+
+	for (const country of countriesToTry) {
+		try {
+			const songlinkData = await fetchSonglinkData(url, { ...options, userCountry: country });
+			lastSonglinkData = songlinkData;
+			const tidalInfo = extractTidalInfo(songlinkData);
+			if (tidalInfo) {
+				console.log(`Found TIDAL link using country=${country}`);
+				return { tidalInfo };
+			}
+			console.log(`No TIDAL link for country=${country}, trying next...`);
+		} catch (error) {
+			console.warn(`Songlink fetch failed for country=${country}:`, error);
+		}
 	}
+
+	// All countries exhausted — extract source entity for title/artist fallback search
+	const primaryEntity = lastSonglinkData?.entitiesByUniqueId[lastSonglinkData.entityUniqueId];
+	return {
+		tidalInfo: null,
+		fallbackTitle: primaryEntity?.title,
+		fallbackArtist: primaryEntity?.artistName
+	};
 }
 
 /**
