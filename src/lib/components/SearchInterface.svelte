@@ -551,6 +551,12 @@
 			return;
 		}
 
+		// Clear all previous results before fetching new ones
+		searchStore.tracks = [];
+		searchStore.albums = [];
+		searchStore.artists = [];
+		searchStore.playlists = [];
+
 		searchStore.isLoading = true;
 		searchStore.error = null;
 
@@ -594,6 +600,12 @@
 
 		searchStore.isLoading = true;
 		searchStore.error = null;
+
+		// Clear previous results before loading new ones
+		searchStore.tracks = [];
+		searchStore.albums = [];
+		searchStore.artists = [];
+		searchStore.playlists = [];
 
 		try {
 			const platformName = getPlatformName(searchStore.query.trim());
