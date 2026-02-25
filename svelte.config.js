@@ -2,6 +2,7 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import vercel from '@sveltejs/adapter-vercel';
 import node from '@sveltejs/adapter-node';
 import cloudflare from '@sveltejs/adapter-cloudflare';
+import netlify from '@sveltejs/adapter-netlify';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -17,6 +18,12 @@ function selectAdapter() {
 	if (process.env.VERCEL) {
 		console.log('Using Vercel adapter');
 		return vercel();
+	}
+
+	// Netlify environment
+	if (process.env.NETLIFY) {
+		console.log('Using Netlify adapter');
+		return netlify();
 	}
 
 	// Cloudflare Workers environment

@@ -730,7 +730,7 @@
 			</div>
 			<footer class="app-footer">
 				<span>Developed by</span>
-				<strong>Sri Harsha N</strong>
+				<strong>Sri Nallapareddy</strong>
 			</footer>
 		</main>
 
