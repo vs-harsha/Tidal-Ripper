@@ -658,6 +658,14 @@
 			dashFallbackAttemptedTrackId = null;
 		}
 
+		// Safety timeout: if the stream URL fetch stalls (slow/down API), clear loading after 20s
+		const loadingTimeout = setTimeout(() => {
+			if (sequence === loadSequence) {
+				console.warn('Track loading timed out after 20s — clearing loading state');
+				playerStore.setLoading(false);
+			}
+		}, 20000);
+
 		try {
 			if (isHiResQuality(requestedQuality)) {
 				try {
@@ -694,6 +702,7 @@
 				}
 			}
 		} finally {
+			clearTimeout(loadingTimeout);
 			if (sequence === loadSequence) {
 				playerStore.setLoading(false);
 			}
