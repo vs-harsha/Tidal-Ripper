@@ -697,7 +697,7 @@
 					<a
 						target="_blank"
 						rel="noopener noreferrer"
-						href="https://github.com/uimaxbai/tidal-ui"
+						href="https://github.com/vs-harsha/Tidal-Ripper"
 						class="toolbar-icon"
 						aria-label="Project GitHub"
 					>
