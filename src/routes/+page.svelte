@@ -79,16 +79,17 @@
 	}
 
 	.hero__title {
-		font-size: clamp(2.5rem, 8vw, 4rem);
-		font-weight: 700;
-		line-height: 1.1;
+		font-size: clamp(2.5rem, 8vw, 4.5rem);
+		font-weight: 800;
+		line-height: 1.05;
 		margin: 0;
-		background: linear-gradient(135deg, #f0e8ff 0%, #d8b4fe 25%, #a855f7 55%, #ec4899 80%, #f9a8d4 100%);
+		letter-spacing: -0.02em;
+		background: linear-gradient(135deg, #fdf8ee 0%, #f2d98a 20%, #c9a84c 48%, #b84a62 74%, #f9d0a0 100%);
 		background-size: 200% 200%;
 		-webkit-background-clip: text;
 		background-clip: text;
 		color: transparent;
-		filter: drop-shadow(0 0 24px rgba(168, 85, 247, 0.45));
+		filter: drop-shadow(0 0 28px rgba(201, 168, 76, 0.42));
 		animation: gradient-shift 8s ease infinite;
 	}
 
@@ -109,13 +110,15 @@
 	}
 
 	.hero__slogan {
-		font-size: clamp(1rem, 2.5vw, 1.25rem);
-		color: rgba(216, 180, 254, 0.75);
+		font-size: clamp(1rem, 2.5vw, 1.2rem);
+		color: rgba(201, 168, 76, 0.65);
 		margin: 0;
 		line-height: 1.6;
 		max-width: 36rem;
 		margin: 0 auto;
-		letter-spacing: 0.01em;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		font-weight: 400;
 	}
 
 	.search-section {

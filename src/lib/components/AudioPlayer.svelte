@@ -1800,59 +1800,59 @@
 
 <style>
 	.audio-player-glass {
-		background: rgba(16, 5, 35, 0.30);
-		border-color: rgba(200, 160, 255, 0.18);
-		backdrop-filter: blur(var(--perf-blur-high, 32px)) saturate(var(--perf-saturate, 160%)) brightness(1.06);
-		-webkit-backdrop-filter: blur(var(--perf-blur-high, 32px)) saturate(var(--perf-saturate, 160%)) brightness(1.06);
+		background: rgba(12, 5, 18, 0.34);
+		border-color: rgba(201, 168, 76, 0.20);
+		backdrop-filter: blur(var(--perf-blur-high, 32px)) saturate(var(--perf-saturate, 160%)) brightness(1.07);
+		-webkit-backdrop-filter: blur(var(--perf-blur-high, 32px)) saturate(var(--perf-saturate, 160%)) brightness(1.07);
 		box-shadow:
-			0 30px 80px rgba(0, 0, 0, 0.65),
-			0 4px 18px rgba(100, 40, 200, 0.15),
-			inset 0 1px 0 rgba(255, 255, 255, 0.14),
+			0 30px 80px rgba(0, 0, 0, 0.70),
+			0 4px 18px rgba(100, 55, 0, 0.18),
+			inset 0 1px 0 rgba(255, 245, 200, 0.14),
 			inset 0 -1px 0 rgba(0, 0, 0, 0.12),
-			inset 0 0 40px rgba(168, 85, 247, 0.04);
+			inset 0 0 40px rgba(201, 168, 76, 0.03);
 		transition:
 			border-color 1.2s cubic-bezier(0.4, 0, 0.2, 1),
 			box-shadow 0.3s ease;
 	}
 
 	.queue-panel {
-		background: rgba(16, 5, 35, 0.25);
-		border-color: rgba(200, 160, 255, 0.14);
+		background: rgba(12, 5, 18, 0.28);
+		border-color: rgba(201, 168, 76, 0.15);
 		backdrop-filter: blur(var(--perf-blur-medium, 28px)) saturate(var(--perf-saturate, 160%));
 		-webkit-backdrop-filter: blur(var(--perf-blur-medium, 28px))
 			saturate(var(--perf-saturate, 160%));
 		box-shadow:
-			0 8px 24px rgba(0, 0, 0, 0.4),
-			inset 0 1px 0 rgba(255, 255, 255, 0.08);
+			0 8px 24px rgba(0, 0, 0, 0.45),
+			inset 0 1px 0 rgba(255, 245, 200, 0.08);
 		transition:
 			border-color 1.2s cubic-bezier(0.4, 0, 0.2, 1),
 			box-shadow 0.3s ease;
 	}
 
 	.ffmpeg-banner {
-		background: rgba(100, 40, 168, 0.15);
-		border-color: rgba(168, 85, 247, 0.55);
+		background: rgba(80, 55, 10, 0.18);
+		border-color: rgba(201, 168, 76, 0.55);
 		backdrop-filter: blur(var(--perf-blur-high, 32px)) saturate(var(--perf-saturate, 160%));
 		-webkit-backdrop-filter: blur(var(--perf-blur-high, 32px)) saturate(var(--perf-saturate, 160%));
 		box-shadow:
-			0 12px 32px rgba(0, 0, 0, 0.5),
-			0 2px 8px rgba(168, 85, 247, 0.2),
-			inset 0 1px 0 rgba(216, 180, 254, 0.15),
-			inset 0 0 30px rgba(168, 85, 247, 0.08);
+			0 12px 32px rgba(0, 0, 0, 0.55),
+			0 2px 8px rgba(201, 168, 76, 0.18),
+			inset 0 1px 0 rgba(232, 208, 150, 0.15),
+			inset 0 0 30px rgba(201, 168, 76, 0.06);
 		transition:
 			border-color 1.2s cubic-bezier(0.4, 0, 0.2, 1),
 			box-shadow 0.3s ease;
 	}
 
 	.download-popup {
-		background: rgba(16, 5, 35, 0.25);
-		border-color: rgba(200, 160, 255, 0.18);
+		background: rgba(12, 5, 18, 0.28);
+		border-color: rgba(201, 168, 76, 0.20);
 		backdrop-filter: blur(var(--perf-blur-high, 32px)) saturate(var(--perf-saturate, 160%));
 		-webkit-backdrop-filter: blur(var(--perf-blur-high, 32px)) saturate(var(--perf-saturate, 160%));
 		box-shadow:
-			0 12px 32px rgba(0, 0, 0, 0.5),
-			0 2px 8px rgba(100, 40, 180, 0.15),
-			inset 0 1px 0 rgba(255, 255, 255, 0.1);
+			0 12px 32px rgba(0, 0, 0, 0.55),
+			0 2px 8px rgba(100, 60, 0, 0.14),
+			inset 0 1px 0 rgba(255, 245, 200, 0.10);
 		transition:
 			border-color 1.2s cubic-bezier(0.4, 0, 0.2, 1),
 			box-shadow 0.3s ease;
@@ -1904,7 +1904,7 @@
 		align-items: center;
 		justify-content: center;
 		gap: 0.75rem;
-		background: rgba(17, 24, 39, 0.65);
+		background: rgba(10, 4, 14, 0.68);
 		backdrop-filter: blur(6px);
 	}
 
@@ -1919,7 +1919,7 @@
 		width: 0.3rem;
 		height: 0.6rem;
 		border-radius: 9999px;
-		background: rgba(255, 255, 255, 0.85);
+		background: linear-gradient(to top, rgba(201, 168, 76, 0.85), rgba(232, 208, 150, 0.95));
 		animation: equalize 1s ease-in-out infinite;
 	}
 
@@ -1951,8 +1951,8 @@
 	}
 
 	button.rounded-full:hover {
-		border-color: var(--bloom-accent, rgba(168, 85, 247, 0.7)) !important;
-		box-shadow: 0 0 12px rgba(168, 85, 247, 0.2);
+		border-color: var(--bloom-accent, rgba(201, 168, 76, 0.7)) !important;
+		box-shadow: 0 0 14px rgba(201, 168, 76, 0.22);
 	}
 
 	/* Player toggle buttons (Lyrics, Queue) */
@@ -1961,14 +1961,14 @@
 		align-items: center;
 		gap: 0.5rem;
 		border-radius: 9999px;
-		border: 1px solid rgba(200, 160, 255, 0.2);
-		background: rgba(16, 5, 35, 0.2);
+		border: 1px solid rgba(201, 168, 76, 0.22);
+		background: rgba(12, 5, 18, 0.22);
 		backdrop-filter: blur(16px) saturate(140%);
 		-webkit-backdrop-filter: blur(16px) saturate(140%);
-		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+		box-shadow: inset 0 1px 0 rgba(255, 245, 200, 0.08);
 		padding: 0.5rem 0.75rem;
 		font-size: 0.875rem;
-		color: rgba(216, 180, 254, 0.75);
+		color: rgba(232, 208, 150, 0.72);
 		transition:
 			border-color 200ms ease,
 			color 200ms ease,
@@ -1976,15 +1976,15 @@
 	}
 
 	.player-toggle-button:hover {
-		border-color: rgba(168, 85, 247, 0.55);
-		color: rgba(233, 213, 255, 0.95);
-		box-shadow: 0 0 14px rgba(168, 85, 247, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+		border-color: rgba(201, 168, 76, 0.55);
+		color: rgba(253, 248, 228, 0.95);
+		box-shadow: 0 0 16px rgba(201, 168, 76, 0.16), inset 0 1px 0 rgba(255, 245, 200, 0.10);
 	}
 
 	.player-toggle-button--active {
-		border-color: rgba(168, 85, 247, 0.7);
-		color: rgba(233, 213, 255, 0.98);
-		background: rgba(168, 85, 247, 0.1);
-		box-shadow: inset 0 0 20px rgba(168, 85, 247, 0.12), 0 0 12px rgba(168, 85, 247, 0.2);
+		border-color: rgba(201, 168, 76, 0.72);
+		color: rgba(253, 248, 228, 0.98);
+		background: rgba(201, 168, 76, 0.10);
+		box-shadow: inset 0 0 20px rgba(201, 168, 76, 0.10), 0 0 14px rgba(201, 168, 76, 0.20);
 	}
 </style>

@@ -1,10 +1,10 @@
 {
-  "name": "BiniLossless",
-  "short_name": "BiniL",
+  "name": "VelvetTone",
+  "short_name": "VelvetTone",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#111827",
-  "theme_color": "#0f172a",
+  "background_color": "#0d0510",
+  "theme_color": "#c9a84c",
   "lang": "en-US",
   "scope": "/",
   "icons": [

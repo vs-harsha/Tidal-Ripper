@@ -1620,29 +1620,29 @@
 
 <style>
 	.search-glass {
-		background: rgba(16, 5, 35, 0.25);
-		border-color: rgba(200, 160, 255, 0.16);
+		background: rgba(12, 5, 18, 0.28);
+		border-color: rgba(201, 168, 76, 0.18);
 		backdrop-filter: blur(var(--perf-blur-high, 32px)) saturate(var(--perf-saturate, 160%)) brightness(1.05);
 		-webkit-backdrop-filter: blur(var(--perf-blur-high, 32px)) saturate(var(--perf-saturate, 160%)) brightness(1.05);
 		box-shadow:
-			0 10px 30px rgba(0, 0, 0, 0.4),
-			0 2px 8px rgba(100, 40, 180, 0.12),
-			inset 0 1px 0 rgba(255, 255, 255, 0.12),
-			inset 0 0 30px rgba(168, 85, 247, 0.04);
+			0 10px 30px rgba(0, 0, 0, 0.45),
+			0 2px 8px rgba(100, 60, 0, 0.14),
+			inset 0 1px 0 rgba(255, 245, 200, 0.12),
+			inset 0 0 30px rgba(201, 168, 76, 0.03);
 		transition:
 			border-color 1.2s cubic-bezier(0.4, 0, 0.2, 1),
 			box-shadow 0.3s ease;
 	}
 
 	.track-glass {
-		background: rgba(16, 5, 35, 0.18);
-		border: 1px solid rgba(200, 160, 255, 0.10);
+		background: rgba(12, 5, 18, 0.20);
+		border: 1px solid rgba(201, 168, 76, 0.10);
 		backdrop-filter: blur(var(--perf-blur-medium, 28px)) saturate(var(--perf-saturate, 160%));
 		-webkit-backdrop-filter: blur(var(--perf-blur-medium, 28px))
 			saturate(var(--perf-saturate, 160%));
 		box-shadow:
-			0 4px 12px rgba(0, 0, 0, 0.3),
-			inset 0 1px 0 rgba(255, 255, 255, 0.07);
+			0 4px 12px rgba(0, 0, 0, 0.35),
+			inset 0 1px 0 rgba(255, 245, 200, 0.07);
 		transition:
 			border-color 1.2s cubic-bezier(0.4, 0, 0.2, 1),
 			box-shadow 0.3s ease,
@@ -1650,8 +1650,8 @@
 	}
 
 	.region-selector {
-		background: rgba(16, 5, 35, 0.2);
-		border-color: rgba(200, 160, 255, 0.16);
+		background: rgba(12, 5, 18, 0.22);
+		border-color: rgba(201, 168, 76, 0.18);
 		backdrop-filter: blur(var(--perf-blur-high, 32px)) saturate(var(--perf-saturate, 160%));
 		-webkit-backdrop-filter: blur(var(--perf-blur-high, 32px)) saturate(var(--perf-saturate, 160%));
 		transition:
@@ -1660,19 +1660,19 @@
 	}
 
 	.region-selector:hover {
-		border-color: rgba(168, 85, 247, 0.45);
+		border-color: rgba(201, 168, 76, 0.48);
 		box-shadow:
-			0 6px 20px rgba(0, 0, 0, 0.35),
-			0 0 12px rgba(168, 85, 247, 0.12),
-			inset 0 1px 0 rgba(255, 255, 255, 0.1);
+			0 6px 20px rgba(0, 0, 0, 0.38),
+			0 0 14px rgba(201, 168, 76, 0.12),
+			inset 0 1px 0 rgba(255, 245, 200, 0.10);
 	}
 
 	.region-selector:focus {
-		border-color: rgba(168, 85, 247, 0.7);
+		border-color: rgba(201, 168, 76, 0.72);
 		box-shadow:
-			0 6px 20px rgba(0, 0, 0, 0.35),
-			0 0 0 3px rgba(168, 85, 247, 0.15),
-			inset 0 1px 0 rgba(255, 255, 255, 0.1);
+			0 6px 20px rgba(0, 0, 0, 0.38),
+			0 0 0 3px rgba(201, 168, 76, 0.14),
+			inset 0 1px 0 rgba(255, 245, 200, 0.10);
 	}
 
 	.region-chevron {
@@ -1689,8 +1689,8 @@
 
 	/* Tab buttons dynamic styling */
 	button.border-blue-500 {
-		border-color: rgba(168, 85, 247, 0.75) !important;
-		color: rgb(192, 132, 252);
+		border-color: rgba(201, 168, 76, 0.80) !important;
+		color: rgb(232, 208, 150);
 		transition:
 			border-color 0.2s ease,
 			color 0.2s ease;
@@ -1698,13 +1698,13 @@
 
 	/* Search button acrylic styling */
 	.search-button {
-		background: rgba(168, 85, 247, 0.75);
-		border: 1px solid rgba(168, 85, 247, 0.45);
+		background: rgba(201, 168, 76, 0.78);
+		border: 1px solid rgba(201, 168, 76, 0.48);
 		backdrop-filter: blur(16px) saturate(140%);
 		-webkit-backdrop-filter: blur(16px) saturate(140%);
 		box-shadow:
-			0 4px 12px rgba(168, 85, 247, 0.35),
-			inset 0 1px 0 rgba(255, 255, 255, 0.2);
+			0 4px 12px rgba(201, 168, 76, 0.32),
+			inset 0 1px 0 rgba(255, 250, 210, 0.28);
 		transition:
 			background 0.3s ease,
 			border-color 0.3s ease,
@@ -1713,22 +1713,22 @@
 	}
 
 	.search-button:hover:not(:disabled) {
-		background: rgba(168, 85, 247, 0.92);
+		background: rgba(201, 168, 76, 0.95);
 		box-shadow:
-			0 6px 18px rgba(168, 85, 247, 0.5),
-			inset 0 1px 0 rgba(255, 255, 255, 0.25);
+			0 6px 20px rgba(201, 168, 76, 0.48),
+			inset 0 1px 0 rgba(255, 250, 210, 0.32);
 	}
 
 	/* News container acrylic styling */
 	.news-container {
-		background: rgba(16, 5, 35, 0.18);
-		border-color: rgba(200, 160, 255, 0.12);
+		background: rgba(12, 5, 18, 0.20);
+		border-color: rgba(201, 168, 76, 0.12);
 		backdrop-filter: blur(var(--perf-blur-medium, 28px)) saturate(var(--perf-saturate, 160%));
 		-webkit-backdrop-filter: blur(var(--perf-blur-medium, 28px))
 			saturate(var(--perf-saturate, 160%));
 		box-shadow:
-			0 8px 24px rgba(0, 0, 0, 0.3),
-			inset 0 1px 0 rgba(255, 255, 255, 0.08);
+			0 8px 24px rgba(0, 0, 0, 0.35),
+			inset 0 1px 0 rgba(255, 245, 200, 0.08);
 		transition:
 			border-color 1.2s cubic-bezier(0.4, 0, 0.2, 1),
 			box-shadow 0.3s ease;
@@ -1736,13 +1736,13 @@
 
 	/* News card acrylic styling */
 	.news-card {
-		background: rgba(16, 5, 35, 0.15);
-		border-color: rgba(200, 160, 255, 0.10);
+		background: rgba(12, 5, 18, 0.16);
+		border-color: rgba(201, 168, 76, 0.10);
 		backdrop-filter: blur(var(--perf-blur-low, 24px)) saturate(var(--perf-saturate, 160%));
 		-webkit-backdrop-filter: blur(var(--perf-blur-low, 24px)) saturate(var(--perf-saturate, 160%));
 		box-shadow:
-			0 4px 12px rgba(0, 0, 0, 0.25),
-			inset 0 1px 0 rgba(255, 255, 255, 0.07);
+			0 4px 12px rgba(0, 0, 0, 0.28),
+			inset 0 1px 0 rgba(255, 245, 200, 0.06);
 		transition:
 			border-color 1.2s cubic-bezier(0.4, 0, 0.2, 1),
 			box-shadow 0.3s ease,
@@ -1750,25 +1750,25 @@
 	}
 
 	.news-card:hover {
-		border-color: rgba(168, 85, 247, 0.3);
+		border-color: rgba(201, 168, 76, 0.32);
 		box-shadow:
-			0 8px 24px rgba(0, 0, 0, 0.35),
-			0 0 12px rgba(168, 85, 247, 0.1),
-			inset 0 1px 0 rgba(255, 255, 255, 0.1);
+			0 8px 24px rgba(0, 0, 0, 0.38),
+			0 0 14px rgba(201, 168, 76, 0.10),
+			inset 0 1px 0 rgba(255, 245, 200, 0.10);
 	}
 
 	/* Improved contrast for grey text */
 	:global(.text-gray-400) {
-		color: rgb(192, 160, 230) !important;
+		color: rgb(185, 160, 115) !important;
 	}
 
 	:global(.text-gray-500) {
-		color: rgb(160, 130, 200) !important;
+		color: rgb(150, 125, 85) !important;
 	}
 
 	/* Better placeholder contrast */
 	input::placeholder {
-		color: rgb(180, 150, 220) !important;
+		color: rgb(165, 135, 90) !important;
 		opacity: 1;
 	}
 

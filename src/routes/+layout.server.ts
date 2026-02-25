@@ -3,6 +3,6 @@ import { env } from '$env/dynamic/private';
 
 export const load: LayoutServerLoad = () => {
 	return {
-		title: env.TITLE ?? 'BiniLossless'
+		title: env.TITLE ?? 'VelvetTone'
 	};
 };
