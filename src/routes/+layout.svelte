@@ -1255,7 +1255,7 @@
 		letter-spacing: 0.04em;
 	}
 
-
+	.navigation-overlay {
 		position: fixed;
 		inset: 0;
 		display: flex;
