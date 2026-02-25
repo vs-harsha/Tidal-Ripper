@@ -13,6 +13,7 @@
 	import {
 		isSupportedStreamingUrl,
 		convertToTidal,
+		convertToTidalWithFallback,
 		getPlatformName,
 		isSpotifyPlaylistUrl,
 		convertSpotifyPlaylist,
@@ -598,15 +599,25 @@
 			const platformName = getPlatformName(searchStore.query.trim());
 			console.log(`Converting ${platformName || 'streaming'} URL to TIDAL...`);
 
-			const tidalInfo = await convertToTidal(searchStore.query.trim(), {
-				userCountry: 'US',
-				songIfSingle: true
-			});
+		const { tidalInfo, fallbackTitle, fallbackArtist } = await convertToTidalWithFallback(
+			searchStore.query.trim(),
+			{ songIfSingle: true }
+		);
 
-			if (!tidalInfo) {
-				searchStore.error = `Could not find TIDAL equivalent for this ${platformName || 'streaming platform'} link. The content might not be available on TIDAL.`;
-				searchStore.isLoading = false;
-				return;
+		if (!tidalInfo) {
+			// No TIDAL link via Songlink — try a direct TIDAL search using title + artist
+			if (fallbackTitle) {
+				console.log(`No TIDAL link found, falling back to search: "${fallbackTitle}" by ${fallbackArtist}`);
+				const searchQuery = fallbackArtist ? `${fallbackTitle} ${fallbackArtist}` : fallbackTitle;
+				const response = await losslessAPI.searchTracks(searchQuery, selectedRegion);
+				if (response?.items?.length) {
+					searchStore.activeTab = 'tracks';
+					searchStore.tracks = response.items;
+					searchStore.query = searchQuery;
+					searchStore.isLoading = false;
+					return;
+				}
+			}
 			}
 
 			console.log('Converted to TIDAL:', tidalInfo);

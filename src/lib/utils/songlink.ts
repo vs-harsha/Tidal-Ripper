@@ -121,6 +121,26 @@ export function extractTidalInfo(response: SonglinkResponse): TidalInfo | null {
 }
 
 /**
+ * Detect the country code from an Apple Music (or other) streaming URL.
+ * e.g. https://music.apple.com/in/song/... → 'IN'
+ *      https://music.apple.com/us/song/... → 'US'
+ * Returns null if no country segment is found.
+ */
+export function detectCountryFromUrl(url: string): string | null {
+	try {
+		const parsed = new URL(url);
+		// Apple Music: music.apple.com/{cc}/...
+		if (parsed.hostname === 'music.apple.com') {
+			const cc = parsed.pathname.split('/').filter(Boolean)[0];
+			if (cc && cc.length === 2) return cc.toUpperCase();
+		}
+		return null;
+	} catch {
+		return null;
+	}
+}
+
+/**
  * Fetch Songlink data for a given URL
  */
 export async function fetchSonglinkData(
@@ -160,7 +180,8 @@ export async function fetchSonglinkData(
 }
 
 /**
- * Convert a streaming platform URL to TIDAL information
+ * Convert a streaming platform URL to TIDAL information.
+ * Auto-detects country from the URL when not provided.
  */
 export async function convertToTidal(
 	url: string,
@@ -170,11 +191,39 @@ export async function convertToTidal(
 	}
 ): Promise<TidalInfo | null> {
 	try {
-		const songlinkData = await fetchSonglinkData(url, options);
+		const country = options?.userCountry ?? detectCountryFromUrl(url) ?? 'US';
+		const songlinkData = await fetchSonglinkData(url, { ...options, userCountry: country });
 		return extractTidalInfo(songlinkData);
 	} catch (error) {
 		console.error('Failed to convert URL to TIDAL:', error);
 		return null;
+	}
+}
+
+/**
+ * Like convertToTidal but also returns the source entity (title/artist)
+ * so callers can fall back to a direct TIDAL search when no TIDAL link exists.
+ */
+export async function convertToTidalWithFallback(
+	url: string,
+	options?: { userCountry?: string; songIfSingle?: boolean }
+): Promise<{ tidalInfo: TidalInfo | null; fallbackTitle?: string; fallbackArtist?: string }> {
+	try {
+		const country = options?.userCountry ?? detectCountryFromUrl(url) ?? 'US';
+		const songlinkData = await fetchSonglinkData(url, { ...options, userCountry: country });
+		const tidalInfo = extractTidalInfo(songlinkData);
+		if (tidalInfo) return { tidalInfo };
+
+		// No TIDAL link found — extract source entity for fallback search
+		const primaryEntity = songlinkData.entitiesByUniqueId[songlinkData.entityUniqueId];
+		return {
+			tidalInfo: null,
+			fallbackTitle: primaryEntity?.title,
+			fallbackArtist: primaryEntity?.artistName
+		};
+	} catch (error) {
+		console.error('Failed to convert URL to TIDAL:', error);
+		return { tidalInfo: null };
 	}
 }
 
