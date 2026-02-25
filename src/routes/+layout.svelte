@@ -728,6 +728,10 @@
 			<div class="app-main__inner">
 				{@render children?.()}
 			</div>
+			<footer class="app-footer">
+				<span>Developed by</span>
+				<strong>Sri Harsha N</strong>
+			</footer>
 		</main>
 
 		<AudioPlayer onHeightChange={handlePlayerHeight} />
@@ -1233,7 +1237,25 @@
 		margin: 0 auto;
 	}
 
-	.navigation-overlay {
+	.app-footer {
+		text-align: center;
+		padding: 1.5rem 1rem 2rem;
+		font-size: 0.78rem;
+		letter-spacing: 0.06em;
+		color: rgba(201, 168, 76, 0.40);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.45em;
+	}
+
+	.app-footer strong {
+		color: rgba(201, 168, 76, 0.70);
+		font-weight: 600;
+		letter-spacing: 0.04em;
+	}
+
+
 		position: fixed;
 		inset: 0;
 		display: flex;
